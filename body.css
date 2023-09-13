@@ -275,14 +275,19 @@
 .class-wrapper > .lower > .class-detail-wrapper > .class {
   width: 400px;
   height: 750px;
-  /* background-color: #f8fafc; */
-  /* background-image: url("assets/about-us.jpg"); */
   background-color: var(--bg-dark);
   background-blend-mode: multiply;
   text-align: center;
   color: var(--font-color);
-  margin: 15px;
+  margin: auto;
+  margin-bottom: 1.5rem;
   border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .class-wrapper > .lower > .class-detail-wrapper > .class {
+    margin: 15px;
+  }
 }
 
 .class-wrapper > .lower > .class-detail-wrapper > .class > .upper-text {

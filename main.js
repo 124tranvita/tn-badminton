@@ -130,6 +130,19 @@ const renderMenuItems = (menuEl, elementId) => {
   }
 };
 
+const menuItemClickEvt = () => {
+  MENU_ID.forEach((item) => {
+    const element = document.querySelector(`#${item}`);
+    const sectionEl = headerElObj[`${item}El`];
+
+    element.addEventListener("click", () => {
+      sectionEl.scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+};
+
 /** MENU CONFIGURATION */
 
 // 1. Set menu list
@@ -138,8 +151,10 @@ const menuMobile = document.querySelector("#menu-mobile");
 
 if (WIDTH > 425) {
   renderMenuItems(menu, "menu");
+  menuMobile.innerHTML = "";
 } else {
   renderMenuItems(menuMobile, "menu-mobile");
+  menu.innerHTML = "";
 }
 
 // 2. Set menu's item event
@@ -161,16 +176,8 @@ const headerElObj = {
 
 console.log({ headerElObj });
 
-MENU_ID.forEach((item) => {
-  const element = document.querySelector(`#${item}`);
-  const sectionEl = headerElObj[`${item}El`];
+menuItemClickEvt();
 
-  element.addEventListener("click", () => {
-    sectionEl.scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-});
 // 3. Set mobile menu's item
 const menuMobileBtn = document.querySelector("#menu-mobile-button");
 const menuMobileMdl = document.querySelector(".menu-mobile-modal");
@@ -276,24 +283,21 @@ classesList.innerHTML = classesListItems.join("");
 // /* IMAGE GALLERY */
 const imgGalleryEl = document.getElementById("static-thumbnails");
 
-if (WIDTH < 768) {
-  renderImageGallery(imgGalleryEl, 6);
-} else if (768 <= WIDTH && WIDTH < 992) {
-  renderImageGallery(imgGalleryEl, 8);
-} else {
-  renderImageGallery(imgGalleryEl);
-}
+renderImageGallery(imgGalleryEl);
 
 /** WINDOWS RESIZE related evemt */
 window.addEventListener("resize", function () {
   WIDTH = this.innerWidth;
   HEIGHT = this.innerHeight;
 
-  if (WIDTH > 425) {
+  if (WIDTH >= 768) {
     renderMenuItems(menu, "menu");
+    menuMobile.innerHTML = "";
   } else {
     renderMenuItems(menuMobile, "menu-mobile");
+    menu.innerHTML = "";
   }
+  menuItemClickEvt();
 
   if (WIDTH <= 425) {
     liElMobile[0].classList.add("active");
@@ -304,15 +308,6 @@ window.addEventListener("resize", function () {
       });
     });
   }
-
-  /* IMAGE GALLERY */
-  // if (WIDTH < 768) {
-  //   renderImageGallery(galleryEl, 6);
-  // } else if (768 <= WIDTH && WIDTH < 992) {
-  //   renderImageGallery(galleryEl, 8);
-  // } else {
-  //   renderImageGallery(galleryEl);
-  // }
 });
 
 /** Header */
