@@ -1,0 +1,28 @@
+.banner {
+  visibility: visible;
+  z-index: -100;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  transform: translate3d(0px, 0px, 0px);
+  height: 100vh;
+  width: 100%;
+}
+
+.image-banner {
+  transform: translate3d(0px, 0px, 0px);
+  height: auto;
+  object-fit: cover;
+  transition: 0.1s;
+}
+
+@media screen and (min-width: 1200px) {
+  .image-banner {
+    transform: translate3d(0px, 0px, 0px);
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.1s;
+  }
+}

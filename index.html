@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="banner.css" />
+    <link rel="stylesheet" href="body.css" />
+    <!-- Plugin CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/light.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/dark.min.css"
+      rel="stylesheet"
+    />
+    <!-- lightgallery plugins -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css"
+      rel="stylesheet"
+    />
+    <!-- Plugin JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"
+      defer
+    ></script>
+    <title>Badminton Club</title>
+  </head>
+  <body>
+    <header class="header-container" id="header">
+      <div class="header-content">
+        <div class="brand">
+          <h1 class="brand-name">
+            <a href="#">Club name</a>
+          </h1>
+        </div>
+        <!-- navbar-pc -->
+        <div class="navbar">
+          <ul class="menu" id="menu">
+            <!-- navitem -->
+          </ul>
+        </div>
+        <!-- navbar-mobile -->
+        <div class="navbar-mobile">
+          <button id="menu-mobile-button"></button>
+          <div class="menu-mobile-modal hidden">
+            <ul class="menu-mobile" id="menu-mobile">
+              <!-- navitem -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- banner -->
+      <div class="banner">
+        <img class="image-banner" src="assets/gallery.jpg" alt="" />
+      </div>
+
+      <!-- home -->
+      <section id="home">
+        <div class="home-wrapper">
+          <div class="shadow-overlay"></div>
+        </div>
+      </section>
+
+      <!-- about us -->
+      <section id="about-us">
+        <div class="about-us-wrapper">
+          <div class="top-text bottom-line">
+            <p>badminton club</p>
+            <h1>Club Name</h1>
+          </div>
+          <div class="middle-text">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt.
+            </p>
+          </div>
+          <div class="bottom-text">
+            <div class="box-image">
+              <img src="assets/about-us/courts.png" alt="" />
+              <h2>4 court available</h2>
+              <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="box-image">
+              <img src="assets/about-us/cracket.png" alt="" />
+              <h2>traning class</h2>
+              <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="box-image">
+              <img src="assets/about-us/tournament.png" alt="" />
+              <h2>club tournament</h2>
+              <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="box-image">
+              <img src="assets/about-us/shutter.png" alt="" />
+              <h2>accessory</h2>
+              <p>Lorem ipsum dolor sit amet</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- courts scheduler -->
+      <section id="courts-scheduler">
+        <div class="calendar-wrapper">
+          <div class="calendar-caption">
+            <h1>Courts <span id="courtNum"></span> Scheduler</h1>
+            <button id="btnPrev">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-caret-left-fill btn-icon"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                />
+              </svg>
+            </button>
+            <button id="btnNext">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-caret-right-fill btn-icon"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div id="calendar"></div>
+        </div>
+      </section>
+
+      <!-- classes -->
+      <section id="training-classes">
+        <div class="class-wrapper">
+          <div class="upper">
+            <p class="mini-text">Baminton Club</p>
+            <h1 class="normal-text">Visit our classes</h1>
+            <hr />
+          </div>
+          <div class="lower">
+            <div class="class-detail-wrapper">
+              <!-- render -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- gallery -->
+      <section id="club-gallery">
+        <div class="gallery-wrapper">
+          <div class="gallery-caption">
+            <h1>Our best moments</h1>
+          </div>
+          <div id="static-thumbnails">
+            <!-- render -->
+          </div>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section id="contact-us">
+        <div class="contact-wrapper">
+          <div class="left"></div>
+          <div class="center"></div>
+          <div class="right"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- scripts -->
+    <script>
+      const events = {
+        event1: [
+          {
+            groupId: "blueEvents", // recurrent events in this group move together
+            daysOfWeek: ["4"],
+            startTime: "10:45:00",
+            endTime: "12:45:00",
+          },
+        ],
+        event2: [
+          {
+            groupId: "greenEvents",
+            daysOfWeek: ["3"], // these recurrent events move separately
+            startTime: "11:00:00",
+            endTime: "11:30:00",
+            color: "red",
+          },
+        ],
+        event3: [
+          {
+            groupId: "redEvents",
+            daysOfWeek: ["2"], // these recurrent events move separately
+            startTime: "11:00:00",
+            endTime: "11:30:00",
+            color: "red",
+          },
+        ],
+      };
+
+      let eventNum = 1;
+
+      const size = Object.keys(events).length;
+
+      const btnPrev = document.getElementById("btnPrev");
+      const btnNext = document.getElementById("btnNext");
+      const courtNum = document.getElementById("courtNum");
+
+      courtNum.innerText = `${eventNum}`;
+
+      const renderCalendar = (calendarEl, events) => {
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          slotMinTime: "09:00",
+          slotMaxTime: "22:00",
+          expandRows: true,
+          height: "100%",
+
+          headerToolbar: {
+            left: "prev,next today",
+            center: "title",
+            right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+          },
+          handleWindowResize: true,
+          // buttonText: {
+          //   today: "hom nay",
+          //   month: "thang",
+          //   week: "week",
+          //   day: "day",
+          //   list: "list",
+          // },
+          initialView: "timeGridWeek",
+          navLinks: true, // can click day/week names to navigate views
+          editable: true,
+          selectable: true,
+          nowIndicator: true,
+          dayMaxEvents: true, // allow "more" link when too many events
+
+          events,
+        });
+        calendar.render();
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const calendarEl = document.getElementById("calendar");
+
+        renderCalendar(calendarEl, events.event1);
+
+        btnNext.addEventListener("click", function () {
+          if (eventNum < size) {
+            eventNum += 1;
+          } else {
+            eventNum = 1;
+          }
+
+          renderCalendar(calendarEl, events[`event${eventNum}`]);
+          courtNum.innerText = `${eventNum}`;
+        });
+
+        btnPrev.addEventListener("click", function () {
+          console.log({ eventNum });
+          console.log({ event: events[`event${eventNum}`] });
+          if (eventNum === 1) {
+            eventNum = size;
+          } else {
+            eventNum -= 1;
+          }
+
+          renderCalendar(calendarEl, events[`event${eventNum}`]);
+          courtNum.innerText = `${eventNum}`;
+        });
+
+        lightGallery(document.getElementById("static-thumbnails"), {
+          animateThumb: false,
+          zoomFromOrigin: false,
+          allowMediaOverlap: true,
+          toggleThumb: true,
+        });
+      });
+    </script>
+    <script src="main.js"></script>
+    <!-- lightgallery plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.umd.min.js"></script>
+  </body>
+</html>

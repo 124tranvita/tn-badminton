@@ -1,0 +1,227 @@
+:root {
+  --font-color: #f1f5f9;
+}
+
+.header-container {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: 0.3s ease-in-out;
+  color: var(--font-color);
+}
+
+.header-active {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.header-active-1 {
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 5px -1px 12px -5px #1e293b;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  min-width: 300px;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-content {
+    width: 750px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .header-content {
+    width: 970px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header-content {
+    width: 1200px;
+  }
+}
+
+.brand {
+  flex: 2;
+}
+
+.brand-name {
+  font: 700 44px/44px "Yanone Kaffeesatz", sans-serif;
+  letter-spacing: 3.52px;
+  text-transform: uppercase;
+}
+
+.navbar-mobile {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  justify-items: center;
+  padding-top: 1.5rem;
+  text-align: end;
+}
+
+.navbar {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
+
+.menu,
+.menu-mobile > li {
+  display: flex;
+  place-items: center;
+  font: 400 26px/28px "Yanone Kaffeesatz", sans-serif;
+}
+
+.menu-mobile > li {
+  position: relative;
+  justify-content: end;
+  padding: 1rem 0;
+}
+
+.menu-mobile-modal {
+  position: absolute;
+  top: 6.5rem;
+  right: 0;
+  width: 350px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.menu-mobile > li:hover {
+  cursor: pointer;
+}
+
+.menu-mobile > li:hover::before {
+  display: table;
+  content: "";
+  line-height: 0;
+  position: absolute;
+  width: 4rem;
+  height: 5px;
+  bottom: 0;
+  right: 0;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: all 0.3;
+  animation: scaleUpX 0.5s;
+}
+
+.menu-mobile > li.active {
+  color: #fff;
+}
+
+.menu-mobile > li.active::before {
+  display: table;
+  content: "";
+  line-height: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 4rem;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-mobile {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .menu > li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .menu > li {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.menu > li:hover {
+  cursor: pointer;
+}
+
+.menu > li:hover::before {
+  display: table;
+  content: "";
+  line-height: 0;
+  position: absolute;
+  width: 4rem;
+  height: 5px;
+  bottom: 2rem;
+  border-radius: 5px;
+  background-color: var(--font-color);
+  transition: all 0.3;
+  animation: scaleUpX 0.5s;
+}
+
+.menu > li.active {
+  color: var(--font-color);
+}
+
+.menu > li.active::before {
+  display: table;
+  content: "";
+  line-height: 0;
+  position: absolute;
+  width: 4rem;
+  height: 5px;
+  bottom: 2rem;
+  border-radius: 5px;
+  background-color: var(--font-color);
+}
+
+@keyframes scaleUpX {
+  from {
+    width: 0;
+  }
+  to {
+    width: 4rem;
+  }
+}
+
+#menu-mobile-button {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid var(--font-color);
+  color: var(--font-color);
+}
